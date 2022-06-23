@@ -36,16 +36,15 @@
             }//for de columnas
 
             //-------------------------------ordenamos las columnas de menor a mayor
+            //metodo de ordenacion Burbuja
             for (int c = 0; c < 9; c++) {
                 for (int f = 0; f < 3; f++) {
-                    for (int k = f + 1; k < 3; k++) {
-
-                        if (carton[f, c] > carton[k, c]) {
+                    for (int k = f + 1; k < 3; k++) {//compara el elem con el de la sig fila
+                        if (carton[f, c] > carton[k, c]) {//se hace el intercambio
                             int aux = carton[f, c];
                             carton[f, c] = carton[k, c];
                             carton[k, c] = aux;
                         }
-
                     }
                 }
             }
