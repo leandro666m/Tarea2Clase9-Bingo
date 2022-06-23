@@ -9,25 +9,31 @@
                 for (int f = 0; f < 3; f++) {
 
                     int nuevoNumero = 0;
-                    bool encontreUnoNuevo = false;
-                    while (!encontreUnoNuevo) {
+                    bool encontreUnoNuevo = true;
+                    while ( encontreUnoNuevo ) { //V
                         if (c == 0) { //columna 0
                             nuevoNumero = genRandom.Next(1, 10); //1 al 9
                         } else { //todas las demas columnas
-                            nuevoNumero = genRandom.Next(c * 10, c * 10 + 10);
+                            nuevoNumero = genRandom.Next(c * 10, c * 10 + 10); //4*10=40  4*10+10=50 Next(40,50)  del 40 al 49
                         }
+                        
+                        
                         //buscamos si el nuevoNumero existe en la columna
-                        encontreUnoNuevo = true;
                         for (int f2 = 0; f2 < 3; f2++) {
-                            if (carton[f2, c] == nuevoNumero) {
-                                encontreUnoNuevo = false;
-                                break;
+                            if ( carton[f2, c] == nuevoNumero ) {
+                                encontreUnoNuevo = true;
+                                break; //volver al while()
+                            } else {
+                                encontreUnoNuevo = false; //no vuelve a entrar en el while => lo asigna a la matriz
                             }
                         }//si salio del bucle y no encontro repetidos, encontreUnoNuevo=true y sale del bucle
+                        
                     }//while
-                    carton[f, c] = nuevoNumero;
-                }
-            }
+                    
+                    carton[f, c] = nuevoNumero; //asignacion
+                    
+                }//for de filas
+            }//for de columnas
 
             //-------------------------------ordenamos las columnas de menor a mayor
             for (int c = 0; c < 9; c++) {
@@ -110,5 +116,5 @@
             Console.WriteLine("--------------------------------------------------\n\n\n\n");
     }//main
 
-}//class
+    }//class
 }//namespace
