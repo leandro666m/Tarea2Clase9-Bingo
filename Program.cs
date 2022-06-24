@@ -51,12 +51,12 @@
 
             //-------------------------------borramos celdas
             var borrados = 0;
-            while (borrados < 12) {
+            while (borrados < 12) {//hasta conseguir 12 espacios en blanco
 
                 var filaABorrar = genRandom.Next(0, 3);
                 var columnaABorrar = genRandom.Next(0, 9);
-
-                //si ya tiene cero, no borrar (ya esta borrado!)
+                 
+                //si ya tiene cero, no borrar (ya esta borrado!) // condicion 1
                 if (carton[filaABorrar, columnaABorrar] == 0) { continue; }
 
                 //contamos cuantos ceros hay en esta fila
